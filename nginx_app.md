@@ -88,4 +88,7 @@ Perceba que agora usamos a porta 8000 e também inicia um '*worker*' com um pid 
 
 ![Gunicorn rodando um app Flask](./images/gunicorn_flask_app.png)
 
+Por fim, pare o Gunicorn (`CTRL+D`) e desative o venv:
+> deactivate
+
 Próximo: [Application Server no Nginx](./nginx_services.md)
