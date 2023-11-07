@@ -1,5 +1,8 @@
 # Proxy reverso
+
 ## Criando o Application Server (app)
+Um application server permite enviar ao cliente, páginas diferentes, em diferentes situações, ou seja, páginas dinâmicas, como com ReactJS, Django, Flask, etc. Ou simplesmente retornar dados (geralmente JSON) para que um Front End decida o que fazer com ele, sendo assim uma API.
+
 ### Instalação do Python3, do PIP e Virtual Enviroment
 > apt install python3 python3-pip
 
