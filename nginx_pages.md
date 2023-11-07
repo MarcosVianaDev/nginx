@@ -94,6 +94,11 @@ Execute o comando para recarregar as novas configurações do Nginx:
 Após o Nginx ter aplicado as novas configurações, ao acessar o endereço da nossa página verde, não aparecerá mais a página padrão do Nginx, mas sim uma página de '404 não encontrado', pois indicamos a pasta e o arquivo, mas ainda não o criamos.
 ![Pagina verde 404](./images/pagina_verde_404.png)
 
+    Dentro da pasta do usuário 'marcos' foi criada uma subpasta chamada 'www' para separar projetos de frontend e uma past 'api' para projetos de backend. Usaremos a pasta 'www'
+> mkdir www  \
+> mkdir api (opcional por enquanto) \
+> cd www/
+
 Para criar a pasta entre com o comando:
 > mkdir /home/marcos/www/pagina_verde
 
