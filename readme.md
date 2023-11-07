@@ -6,4 +6,5 @@ Caso queira um conhecimento mais profundo, assita [este vídeo](https://www.yout
 ## Preparando o Nginx
 1) [Instalando e configurando o Nginx](./nginx.md)
 2) [Páginas estáticas com Nginx](./nginx_pages.md)
-3) [Serviços com Nginx](./nginx_services.md)
+3) [Criando Application Server](./nginx_app.md)
+4) [Application Server no Nginx](./nginx_services.md)
