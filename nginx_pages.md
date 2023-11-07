@@ -138,4 +138,6 @@ Caso a página ainda não apareça, veja o log do Nginx e do serviço da pagina_
 Caso o log indique um erro de permissão, execute o comando: 
 > chmod 777 /home/marcos/
 
-Este comando concede acesso de leitura, escrita e execução a todos os usuário do sistema para a pasta '/home/marcos/'
+    Este comando concede acesso de leitura, escrita e execução a todos os usuário do sistema para a pasta '/home/marcos/'
+
+Para fixar seu conhecimento, refaça os passos desta sessão para a **pagina_azul**, realizando as devidas alterações. Depois você pode ainda criar uma landing-page simples e hospedar em seu próprio servidor `:)`
