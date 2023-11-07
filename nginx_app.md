@@ -14,7 +14,7 @@ Módulos globais devem ser instalados pelo gerenciador de pacotes do Ubuntu (apt
 > apt install python3-virtualenv
 
 Ainda na pasta 'www', crie uma pasta chamada 'myproject' e acesse ela:
-> mkdir myproject
+> mkdir myproject  \
 > cd myproject
 
 Nela será criado um ambiente virtual python, que por convenção terá o nome de venv:
@@ -88,7 +88,7 @@ Perceba que agora usamos a porta 8000 e também inicia um '*worker*' com um pid 
 
 ![Gunicorn rodando um app Flask](./images/gunicorn_flask_app.png)
 
-Por fim, pare o Gunicorn (`CTRL+D`) e desative o venv:
+Por fim, pare o Gunicorn (`CTRL+C`) e desative o venv:
 > deactivate
 
 Próximo: [Application Server no Nginx](./nginx_services.md)
