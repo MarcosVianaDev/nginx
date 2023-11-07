@@ -1,4 +1,5 @@
 # Proxy reverso
+    Em poucas palavras o Nginx recebe conexões e com base na URL da requisição desvia para uma rota/arquivo/serviço predeterminado. E caso não haja uma política para uma requisição, segue para a rota padrão.
 ## Desviando o acesso para páginas estáticas
 > Note que meu usuário é '**marcos**' e minha pasta é '**/home/marcos**', portanto substitua por seu nome de usuário  \
 > Os comandos devem ser executados como root, digite `sudo -s` no terminal para acessar o usuário root
@@ -10,7 +11,7 @@
     ![nano /etc/hosts](./images/host_file.png)
     `CTRL+X` para sair, `Y` para salvar e `ENTER` para confirmar.
 
-    Neste momento, se acessar *pagina_verde* ou *pagina_azul* no navegador da máquina virtal, deverá aparecer a página padrão do Nginx:
+    Neste momento, se acessar *pagina_verde* ou *pagina_azul* no navegador da máquina virtual, deverá aparecer a página padrão do Nginx:
     ![Alt text](./images/web_browser_Nginx.png)
 - Caso esteja usando um servidor dedicado com um sistema de servidor, sem navegador (meu caso), não adiantará editar o arquivo de host, já que o acesso será através de outra máquina. Neste caso use o serviço chamado [nip.io](nip.io)
 
@@ -48,16 +49,6 @@ server {
 ```
 `CTRL+X` para sair, `Y` para salvar e `ENTER` para confirmar.
 
-Feito isso, vamos para o diretório de sites ativados:
-> cd /etc/nginx/sites-enabled/
-
-E crie um link simbólico para o arquivo anterior:
-> ln -s /etc/nginx/sites-available/pagina_verde pagina_verde
-
-O comando `ls` mostra o conteúdo da pasta atual.  \
-O comando `ll` mostra, **em detalhes**, o conteúdo da pasta atual.
-![Sites ativados](./images/sites_enabled.png)
-
 EXPLICANDO O ARQUIVO *pagina_verde*
 ```
 server {
@@ -85,6 +76,17 @@ server {
         }
 }
 ```
+
+Feito isso, vamos para o diretório de sites ativados:
+> cd /etc/nginx/sites-enabled/
+
+E crie um link simbólico para o arquivo anterior:
+> ln -s /etc/nginx/sites-available/pagina_verde pagina_verde
+
+O comando `ls` mostra o conteúdo da pasta atual.  \
+O comando `ll` mostra, **em detalhes**, o conteúdo da pasta atual.
+![Sites ativados](./images/sites_enabled.png)
+
 Execute o comando para recarregar as novas configurações do Nginx:
 > service nginx restart
 
@@ -95,7 +97,7 @@ Após o Nginx ter aplicado as novas configurações, ao acessar o endereço da n
 Para criar a pasta entre com o comando:
 > mkdir /home/marcos/www/pagina_verde
 
-Depois acesse a pasta com:
+Depois acesse a pasta com o comando:
 > cd /home/marcos/www/pagina_verde
 
 Por fim, crie o arquivo index.html
@@ -133,11 +135,15 @@ Caso a página ainda não apareça, veja o log do Nginx e do serviço da pagina_
 
 > tail -n 10 /var/log/nginx/pagina_verde.error.log
 
+O comando `tail` (calda em inglês) exibe no terminal as últimas linhas de um arquivo de texto. Com o parâmetro `-n 10` indicamos a quantidade de linhas a serem exibidas. Pode ser usado o comando `cat <arquivo>` (catch, pegar em inglês), porém se o arquivo for muito grande, pode travar a máquina, além de dificultar a leitura.
+
 ![Permission denied](./images/permisson_denied.png)
 
 Caso o log indique um erro de permissão, execute o comando: 
 > chmod 777 /home/marcos/
 
-    Este comando concede acesso de leitura, escrita e execução a todos os usuário do sistema para a pasta '/home/marcos/'
+    Este comando concede acesso de leitura, escrita e execução a todos os usuário do sistema para a pasta '/home/marcos/' e não deve ser usado em ambiente de produção. Em produção, o administrador do sistema deve dar as permissões corretas a cada usuário.
 
 Para fixar seu conhecimento, refaça os passos desta sessão para a **pagina_azul**, realizando as devidas alterações. Depois você pode ainda criar uma landing-page simples e hospedar em seu próprio servidor `:)`
+
+Próximo: [Serviços com Nginx](./nginx_services.md)
